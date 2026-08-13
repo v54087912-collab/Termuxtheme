@@ -71,3 +71,13 @@ source ~/.zshrc
 ```
 
 Enjoy your brand-new, powerful, and beautiful Termux environment! 🎉
+
+---
+
+## 👨‍💻 Developer Details
+
+- **Contact Developer:** [Telegram - @R3V_X](https://t.me/R3V_X)
+- **Community Link:** [Telegram Group](https://t.me/allinformation0173)
+- **Instagram:** [@opeditzxx](https://www.instagram.com/opeditzxx/?utm_source=qr&r=nametag)
+- **GitHub:** [v54087912-collab](https://github.com/v54087912-collab)
+- **Portfolio Website:** [aboutmee.pages.dev](https://aboutmee.pages.dev/)
