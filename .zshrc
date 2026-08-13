@@ -148,6 +148,24 @@ bindkey -s '\ee' 'exit\n'
 bindkey "^[^M" insert-newline
 bindkey "^[^J" insert-newline
 
+# =========[ Smart Auto-CD for unquoted paths ]=========
+# Enable built-in autocd (works for paths without spaces)
+setopt autocd
+
+# Custom handler to automatically cd into directories containing spaces
+# without needing quotes or 'cd' prefix.
+command_not_found_handler() {
+  local dir="$*"
+  if [[ -d "$dir" ]]; then
+    cd "$dir"
+  elif [ -x "/data/data/com.termux/files/usr/libexec/termux/command-not-found" ]; then
+    "/data/data/com.termux/files/usr/libexec/termux/command-not-found" "$1"
+  else
+    echo "zsh: command not found: $1"
+    return 127
+  fi
+}
+
 
 
 
