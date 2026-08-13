@@ -153,18 +153,14 @@ bindkey "^[^J" insert-newline
 setopt autocd
 
 # Custom handler to automatically cd into directories containing spaces
-# without needing quotes or 'cd' prefix.
-command_not_found_handler() {
-  local dir="$*"
-  if [[ -d "$dir" ]]; then
-    cd "$dir"
-  elif [ -x "/data/data/com.termux/files/usr/libexec/termux/command-not-found" ]; then
-    "/data/data/com.termux/files/usr/libexec/termux/command-not-found" "$1"
-  else
-    echo "zsh: command not found: $1"
-    return 127
+# This overrides the Enter key behavior to parse the text before execution.
+smart-accept-line() {
+  if [[ -d "$BUFFER" ]]; then
+    BUFFER="cd ${(q)BUFFER}"
   fi
+  zle .accept-line
 }
+zle -N accept-line smart-accept-line
 
 
 
